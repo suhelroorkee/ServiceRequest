@@ -480,6 +480,56 @@ var ErrorInterceptorProvider = {
 
 /***/ }),
 
+/***/ "./src/app/_services/request.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/_services/request.service.ts ***!
+  \**********************************************/
+/*! exports provided: RequestService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RequestService", function() { return RequestService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var RequestService = /** @class */ (function () {
+    function RequestService(http) {
+        this.http = http;
+        this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiUrl + 'requests/';
+        this.jwtHelper = new _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_2__["JwtHelperService"]();
+    }
+    RequestService.prototype.sendrequest = function (request) {
+        console.log(this.baseUrl + 'request/', request);
+        return this.http.post(this.baseUrl + 'request/', request);
+    };
+    RequestService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], RequestService);
+    return RequestService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/_services/user.service.ts":
 /*!*******************************************!*\
   !*** ./src/app/_services/user.service.ts ***!
@@ -645,12 +695,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _members_member_edit_member_edit_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./members/member-edit/member-edit.component */ "./src/app/members/member-edit/member-edit.component.ts");
 /* harmony import */ var _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./_resolvers/member-edit.resolver */ "./src/app/_resolvers/member-edit.resolver.ts");
 /* harmony import */ var _guards_prevent_unsaved_changes_gaurd__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./_guards/prevent-unsaved-changes.gaurd */ "./src/app/_guards/prevent-unsaved-changes.gaurd.ts");
+/* harmony import */ var _services_request_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./_services/request.service */ "./src/app/_services/request.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -724,7 +776,8 @@ var AppModule = /** @class */ (function () {
                 _resolvers_member_detail_resolver__WEBPACK_IMPORTED_MODULE_23__["MemberDetailResolver"],
                 _resolvers_member_list_resolver__WEBPACK_IMPORTED_MODULE_24__["MemberListResolver"],
                 _resolvers_member_edit_resolver__WEBPACK_IMPORTED_MODULE_26__["MemberEditResolver"],
-                _guards_prevent_unsaved_changes_gaurd__WEBPACK_IMPORTED_MODULE_27__["PreventUnsavedChanges"]
+                _guards_prevent_unsaved_changes_gaurd__WEBPACK_IMPORTED_MODULE_27__["PreventUnsavedChanges"],
+                _services_request_service__WEBPACK_IMPORTED_MODULE_28__["RequestService"]
             ],
             bootstrap: [
                 _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]
@@ -857,7 +910,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "option {\r\n    font-family: 'FontAwesome', 'Second Font name';\r\n}"
 
 /***/ }),
 
@@ -868,7 +921,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav></app-nav>\r\n<div class=\"container\">\r\n<form action=\"#\">\r\n  <p>\r\n    <label>\r\n      <input type=\"checkbox\" />\r\n      <span>Red</span>\r\n    </label>\r\n  </p>\r\n  <p>\r\n    <label>\r\n      <input type=\"checkbox\" checked=\"checked\" />\r\n      <span>Yellow</span>\r\n    </label>\r\n  </p>\r\n  <p>\r\n    <label>\r\n      <input type=\"checkbox\" class=\"filled-in\" checked=\"checked\" />\r\n      <span>Filled in</span>\r\n    </label>\r\n  </p>\r\n  <p>\r\n    <label>\r\n      <input id=\"indeterminate-checkbox\" type=\"checkbox\" />\r\n      <span>Indeterminate Style</span>\r\n    </label>\r\n  </p>\r\n  <p>\r\n    <label>\r\n      <input type=\"text\" class=\"datepicker\">\r\n\r\n      <span>Green</span>\r\n    </label>\r\n  </p>\r\n  <p>\r\n    <label>\r\n      <input type=\"checkbox\" disabled=\"disabled\" />\r\n      <span>Brown</span>\r\n    </label>\r\n  </p>\r\n</form>\r\n</div>\r\n"
+module.exports = "<app-nav></app-nav>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-lg-1\"></div>\r\n    <div class=\"col-lg-10\">\r\n      <div class=\"well bs-component\">\r\n        <form class=\"form-horizontal\" #requestForm=\"ngForm\" (ngSubmit)=\"sendRequestPost()\">\r\n          <fieldset>\r\n            <legend>Service Request</legend>\r\n            <div class=\"form-group\">\r\n              <label for=\"inputEmail\" class=\"col-lg-2 control-label\">Department</label>\r\n              <div class=\"col-lg-10\">\r\n                <select class=\"form-control\" name=\"Department\" required [(ngModel)]=\"model.Department\" id=\"Department\">\r\n                  <option disabled selected=\"selected\">Select Department</option>\r\n                  <option value=\"1\">Silver</option>\r\n                  <option value=\"2\">Refurb</option>\r\n                  <option value=\"3\">Body</option>\r\n                  <option value=\"4\">LCD</option>\r\n                  <option value=\"5\">Paint</option>\r\n                  <option value=\"6\">Assmbling</option>\r\n                  <option value=\"7\">Lab Testing</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"inputPassword\" class=\"col-lg-2 control-label\">Issue</label>\r\n              <div class=\"col-lg-10\">\r\n                <select class=\"form-control\" name=\"Issue\" required [(ngModel)]=\"model.Issue\" id=\"Issue\">\r\n                  <option value='0'>Select Issue</option>\r\n                  <option value=\"1\">Change Serial</option>\r\n                  <option value=\"2\">Change Inhouse</option>\r\n                  <option value=\"3\">Delete Serial</option>\r\n                  <option value=\"4\">Stock Release Issue</option>\r\n                  <option value=\"5\">Stock Select Issue</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"textArea\" class=\"col-lg-2 control-label\">Comment</label>\r\n              <div class=\"col-lg-10\">\r\n                <textarea class=\"form-control\" rows=\"3\" name=\"Comment\" required [(ngModel)]=\"model.Comment\" id=\"Comment\"></textarea>\r\n                <span class=\"glyphicon glyphicon-asterisk\"></span><span class=\"help-block\">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label class=\"col-lg-2 control-label\">Priorty</label>\r\n              <div class=\"col-lg-10\">\r\n                <select class=\"form-control\" name=\"Priorty\" required [(ngModel)]=\"model.Priorty\" id=\"Priorty\">\r\n                  <option disabled selected>Select Priorty</option>\r\n                  <option value=\"1\"><span>&#xf024;</span> High</option>\r\n                  <option value=\"2\"><span>&#xf024;</span> Medium</option>\r\n                  <option value=\"3\"><span>&#xf024;</span> Low</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <div class=\"col-lg-10 col-lg-offset-2\">\r\n                <button type=\"reset\" class=\"btn btn-default\">Cancel</button>\r\n                <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\r\n              </div>\r\n            </div>\r\n          </fieldset>\r\n        </form>\r\n      <div id=\"source-button\" class=\"btn btn-primary btn-xs\" style=\"display: none;\">&lt; &gt;</div></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -883,6 +936,9 @@ module.exports = "<app-nav></app-nav>\r\n<div class=\"container\">\r\n<form acti
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListsComponent", function() { return ListsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_request_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_services/request.service */ "./src/app/_services/request.service.ts");
+/* harmony import */ var _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_services/alertify.service */ "./src/app/_services/alertify.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -893,10 +949,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var ListsComponent = /** @class */ (function () {
-    function ListsComponent() {
+    function ListsComponent(requestService, alertify, router) {
+        this.requestService = requestService;
+        this.alertify = alertify;
+        this.router = router;
+        this.model = {};
     }
     ListsComponent.prototype.ngOnInit = function () {
+    };
+    ListsComponent.prototype.sendRequestPost = function () {
+        var _this = this;
+        this.requestService.sendrequest(this.model).subscribe(function () {
+            _this.alertify.success('Request Sent Successfull');
+        }, function (error) {
+            _this.alertify.error(error);
+        });
     };
     ListsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -904,7 +975,8 @@ var ListsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./lists.component.html */ "./src/app/lists/lists.component.html"),
             styles: [__webpack_require__(/*! ./lists.component.css */ "./src/app/lists/lists.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_request_service__WEBPACK_IMPORTED_MODULE_1__["RequestService"], _services_alertify_service__WEBPACK_IMPORTED_MODULE_2__["AlertifyService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], ListsComponent);
     return ListsComponent;
 }());
@@ -1485,7 +1557,7 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.register = function () {
         var _this = this;
         this.authService.register(this.model).subscribe(function () {
-            _this.alertify.success('Registeration Successfull');
+            _this.alertify.success('Registration Successful');
         }, function (error) {
             _this.alertify.error(error);
         });
@@ -1630,7 +1702,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\workspace\Workshop\workshop-spa\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\workspace\Workshop\Workshop-SPA\src\main.ts */"./src/main.ts");
 
 
 /***/ })
